@@ -1,9 +1,11 @@
 # smbu_de_cl
 Latent Embedding of EEG Differential Entropy using Contrastive Learning
 
-git clone 
+git clone https://github.com/liangfengsid/deConstrativeLearning.git
 
 cd deContrastiveLearning
+
+put dataset [SEED](https://bcmi.sjtu.edu.cn/~seed/seed.html) to ./data
 
 conda create -n de_cl python=3.11 pytorch=2.0.0
 
