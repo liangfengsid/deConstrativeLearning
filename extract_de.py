@@ -107,7 +107,6 @@ def main(config):
     de_train, de_test, emo_label_train, emo_label_test, subject_label_train, subject_label_test = \
         split_data(de, emo_labels, subject_labels, test_ratio)
 
-    # 保存划分后的数据集
     np.savez(save_path+'/split_data.npz', 
              de_train=de_train, 
              de_test=de_test, 
