@@ -1,7 +1,7 @@
 
 # smbu_de_cl: Identifiable EEG Embeddings by Contrastive Learning from Differential Entropy Features
 
-This repository is the official implementation of the paper: 'Identifiable EEG Embeddings by Contrastive Learning from Differential Entropy Features. 
+This repository is the official implementation of the paper: 'Identifiable EEG Embeddings by Contrastive Learning from Differential Entropy Features.' 
 
 The following sections guide you through cloning the project, preparing the dataset, setting up the environment, and running the code.
 
