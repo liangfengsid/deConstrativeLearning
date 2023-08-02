@@ -42,8 +42,8 @@ def perform_decoding_and_plot(models, de_train, de_test, emo_label_train, emo_la
                 for use_label in decoder_labels:
                     if use_label == 'subject':
                         print('fitting subject decoder')
-                        #decoder.fit(embeddings_train, subject_label_train.flatten())
-                        decoder.fit(embeddings_train[:1000,:], subject_label_train.flatten()[0:1000])
+                        decoder.fit(embeddings_train, subject_label_train.flatten())
+                        #decoder.fit(embeddings_train[:1000,:], subject_label_train.flatten()[0:1000])
                         dump(decoder, f'decoders/{model_fullname}_decode_subject_knn.clf')
 
                         predict_labels_train = decoder.predict(embeddings_train)
