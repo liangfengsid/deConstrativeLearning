@@ -64,7 +64,7 @@ def split_data(de, emo_labels, subject_labels, test_ratio=0.1):
         train_test_split(de, emo_labels, subject_labels, test_size=test_ratio, random_state=42)
     return de_train, de_test, emo_label_train, emo_label_test, subject_label_train, subject_label_test
 
-def load_split_data(split_path='data_split.npz'):
+def load_split_data(split_path):
 
     data_split = np.load(split_path)
     de_train = data_split['de_train']
