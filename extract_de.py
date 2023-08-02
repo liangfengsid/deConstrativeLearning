@@ -89,6 +89,7 @@ def main(config):
     bands = config['bands']
     key_prefix = config['key_prefix']
     save_path = config['save_path']
+    test_ratio = config['test_ratio']
 
     files = os.listdir(preprocess_dir)
     files.sort()
@@ -104,7 +105,7 @@ def main(config):
     save_data(save_path+'/de.npy', de, emo_labels, subject_labels)
 
     de_train, de_test, emo_label_train, emo_label_test, subject_label_train, subject_label_test = \
-        split_data(de, emo_labels, subject_labels, test_ratio=0.1)
+        split_data(de, emo_labels, subject_labels, test_ratio)
 
     # 保存划分后的数据集
     np.savez(save_path+'/split_data.npz', 
