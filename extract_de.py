@@ -7,10 +7,11 @@ import yaml
 
 from tqdm import tqdm
 
-def process_data(preprocess_dir, files, labels, fq, channels, numTime, numBand, bands, key_prefix, sessions, persons, sectors):
+def process_data(preprocess_dir, files, fq, channels, numTime, numBand, bands, key_prefix, sessions, persons, sectors):
     de = np.zeros([0, channels, numTime, numBand])
     emo_labels = np.empty([0, numTime], dtype=np.int32)
     subject_labels = np.empty([0, numTime], dtype=np.int32)
+    labels = scipy.io.loadmat(preprocess_dir + '/label.mat')['label'][0]
 
     total_files = files.shape[0]
 
@@ -93,10 +94,8 @@ def main(config):
     files.sort()
     files = np.asarray(files)[: sessions * persons]
 
-    labels = scipy.io.loadmat(preprocess_dir + '/label.mat')['label'][0]
-
     de, emo_labels, subject_labels = process_data(preprocess_dir, 
-                                                  files, labels, 
+                                                  files,
                                                   fq, channels, 
                                                   numTime, numBand, 
                                                   bands, key_prefix, 
