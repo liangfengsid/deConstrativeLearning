@@ -65,15 +65,23 @@ def split_data(de, emo_labels, subject_labels, test_ratio=0.1):
         train_test_split(de, emo_labels, subject_labels, test_size=test_ratio, random_state=42)
     return de_train, de_test, emo_label_train, emo_label_test, subject_label_train, subject_label_test
 
-def load_split_data(split_path):
+def save_split_data(filename, de_train, de_test, emo_label_train, emo_label_test, subject_label_train, subject_label_test):
+    with open(filename, 'wb') as f:
+        np.save(f, de_train)
+        np.save(f, de_test)
+        np.save(f, emo_label_train)
+        np.save(f, emo_label_test)
+        np.save(f, subject_label_train)
+        np.save(f, subject_label_test)
 
-    data_split = np.load(split_path)
-    de_train = data_split['de_train']
-    de_test = data_split['de_test']
-    emo_label_train = data_split['emo_label_train']
-    emo_label_test = data_split['emo_label_test']
-    subject_label_train = data_split['subject_label_train']
-    subject_label_test = data_split['subject_label_test']
+def load_split_data(split_path):
+    with open(split_path, 'rb') as f:
+        de_train = np.load(f)
+        de_test = np.load(f)
+        emo_label_train = np.load(f)
+        emo_label_test = np.load(f)
+        subject_label_train = np.load(f)
+        subject_label_test = np.load(f)
     
     return de_train, de_test, emo_label_train, emo_label_test, subject_label_train, subject_label_test
 
@@ -107,13 +115,8 @@ def main(config):
     de_train, de_test, emo_label_train, emo_label_test, subject_label_train, subject_label_test = \
         split_data(de, emo_labels, subject_labels, test_ratio)
 
-    np.savez(save_path+'/split_data.npz', 
-             de_train=de_train, 
-             de_test=de_test, 
-             emo_label_train=emo_label_train, 
-             emo_label_test=emo_label_test, 
-             subject_label_train=subject_label_train, 
-             subject_label_test=subject_label_test)
+ save_split_data(save_path+'/split_data.npy', de_train, de_test, emo_label_train, emo_label_test, subject_label_train, subject_label_test)
+
 
 if __name__ == "__main__":
     with open('config.yaml', 'r') as file:
