@@ -50,6 +50,7 @@ def process_data(preprocess_dir, files, fq, channels, numTime, numBand, bands, k
     subject_labels = subject_labels + 1
     subject_labels = subject_labels - 8
 
+    # shape: (numFile, channels, numTime, numBand), (numFile, numTime)
     return de, emo_labels, subject_labels
 
 
