@@ -115,7 +115,7 @@ def main(config):
     de_train, de_test, emo_label_train, emo_label_test, subject_label_train, subject_label_test = \
         split_data(de, emo_labels, subject_labels, test_ratio)
 
- save_split_data(save_path+'/split_data.npy', de_train, de_test, emo_label_train, emo_label_test, subject_label_train, subject_label_test)
+    save_split_data(save_path+'/split_data.npy', de_train, de_test, emo_label_train, emo_label_test, subject_label_train, subject_label_test)
 
 
 if __name__ == "__main__":
