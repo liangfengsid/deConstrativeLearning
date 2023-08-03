@@ -1,6 +1,6 @@
 preprocess_dir: 'data/SEED/SEED_EEG/Preprocessed_EEG'
 save_path: 'data/preprocessed_data'
-split_data_path: 'data/preprocessed_data/split_data.npz'
+split_data_path: 'data/preprocessed_data/sample_split_data.npy'
 
 fq: 200
 channels: 62
